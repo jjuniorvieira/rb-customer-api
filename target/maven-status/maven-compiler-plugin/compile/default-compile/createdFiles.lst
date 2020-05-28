@@ -1,1 +1,8 @@
 com/rabobank/dexterslab/customerapi/CustomerApiApplication.class
+com/rabobank/dexterslab/customerapi/exception/CustomerExceptionHandler.class
+com/rabobank/dexterslab/customerapi/dto/CustomerDTO.class
+com/rabobank/dexterslab/customerapi/dto/ErrorDTO.class
+com/rabobank/dexterslab/customerapi/controller/CustomerController.class
+com/rabobank/dexterslab/customerapi/model/CustomerModel.class
+com/rabobank/dexterslab/customerapi/service/CustomerService.class
+com/rabobank/dexterslab/customerapi/repository/CustomerRepository.class

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rabobank.dexterslab</groupId>
-	<artifactId>customer-api</artifactId>
+	<artifactId>rb-customer-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer-api</name>
+	<name>rb-customer-api</name>
 	<description>Customer API to module</description>
 
 	<properties>

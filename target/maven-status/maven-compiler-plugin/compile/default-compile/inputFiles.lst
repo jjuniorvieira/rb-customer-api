@@ -1,1 +1,8 @@
-/Users/josejunior/dev/git/customer-api/src/main/java/com/rabobank/dexterslab/customerapi/CustomerApiApplication.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/dto/CustomerDTO.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/CustomerApiApplication.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/service/CustomerService.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/repository/CustomerRepository.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/model/CustomerModel.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/exception/CustomerExceptionHandler.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/dto/ErrorDTO.java
+/Users/josejunior/dev/git/rb-customer-api/src/main/java/com/rabobank/dexterslab/customerapi/controller/CustomerController.java

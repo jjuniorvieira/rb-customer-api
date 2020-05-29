@@ -1,18 +1,12 @@
 package com.rabobank.dexterslab.customerapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,6 +14,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class CustomerDTO implements Serializable {
 
     private Integer id;
@@ -30,9 +25,12 @@ public class CustomerDTO implements Serializable {
     @NotNull(message = "Last Name is mandatory")
     private String lastName;
 
+    @NotNull(message = "Age is mandatory")
+    @Positive(message = "Age is not valid")
+    private Integer age;
+
     @Past
-    @NotNull(message = "Date of Birth is mandatory")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dateOfBirth;
 
     @NotNull(message = "Current address is mandatory")

@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO findById(Integer id) {
-        return convertToDTO(repository.findById(id).orElseThrow(() -> new EntityNotFoundException("No customer fond for id: " + id)));
+        return convertToDTO(repository.findById(id).orElseThrow(() -> new EntityNotFoundException("No customer found for id: " + id)));
     }
 
     @Override
@@ -40,6 +40,11 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDTO update(CustomerDTO dto, Integer id) {
         CustomerDTO existentCustomer = findById(id);
         return convertToDTO(repository.save(convertToEntity(buildUpdateCustomer(dto, existentCustomer))));
+    }
+
+    @Override
+    public void delete(Integer id) {
+        repository.delete(repository.findById(id).orElseThrow(() -> new EntityNotFoundException("No customer found for id: " + id)));
     }
 
     private Customer convertToEntity(CustomerDTO person) {

@@ -21,17 +21,17 @@ public class CustomerController {
     @Autowired
     private CustomerService service;
 
-    @GetMapping
+    @GetMapping("list")
     public ResponseEntity<Iterable<CustomerDTO>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("get/{id}")
     public ResponseEntity<CustomerDTO> findById(@PathVariable("id") Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
     }
 
-    @PostMapping
+    @PostMapping("create")
     public ResponseEntity save(@Valid @RequestBody CustomerDTO customerDTO, BindingResult bindingResult) throws URISyntaxException {
         if (bindingResult.hasErrors())
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(setErrorMessage(bindingResult));
@@ -39,7 +39,7 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(customerDTO));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
     public ResponseEntity update(@Valid @RequestBody CustomerDTO customerDTO, BindingResult bindingResult , @PathVariable("id") Integer id) {
         if (bindingResult.hasErrors())
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(setErrorMessage(bindingResult));
@@ -47,9 +47,15 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.OK).body(service.update(customerDTO,id));
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("update/{id}")
     public ResponseEntity partialUpdate(@RequestBody CustomerDTO customerDTO, @PathVariable("id") Integer id) {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(service.update(customerDTO,id));
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity delete(@PathVariable("id") Integer id) {
+        service.delete(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Customer deleted successfully");
     }
 
 }

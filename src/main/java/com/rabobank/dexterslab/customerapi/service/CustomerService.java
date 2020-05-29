@@ -1,7 +1,6 @@
 package com.rabobank.dexterslab.customerapi.service;
 
 import com.rabobank.dexterslab.customerapi.dto.CustomerDTO;
-import com.rabobank.dexterslab.customerapi.model.Customer;
 
 
 public interface CustomerService {
@@ -14,4 +13,5 @@ public interface CustomerService {
 
     CustomerDTO update(CustomerDTO dto, Integer id);
 
+    void delete(Integer id);
 }

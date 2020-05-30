@@ -34,3 +34,10 @@ The REST API documentation to the Customer Application could be found the Swagge
 ## In memory database access
 
 (http://localhost:8080/h2-console/)
+
+# Future features
+- Spring Security
+- Spring AOP
+- Mult-module project (TBD with PO)
+- Heroku profile 
+- UI module project (TBD with PO)

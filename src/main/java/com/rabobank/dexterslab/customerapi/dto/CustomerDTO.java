@@ -30,7 +30,7 @@ public class CustomerDTO implements Serializable {
     @Positive(message = "Age is not valid")
     private Integer age;
 
-    @Past
+    @Past(message = "Should be a past date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dateOfBirth;
 

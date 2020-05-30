@@ -11,5 +11,6 @@ public class ErrorDTO implements Serializable {
 
     private int code;
     private String message;
+    private String action;
 
 }

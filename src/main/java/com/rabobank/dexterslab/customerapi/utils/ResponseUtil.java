@@ -21,7 +21,11 @@ public class ResponseUtil {
             message.add("@" + e.getField().toUpperCase() + ":" + e.getDefaultMessage());
         }
 
-        return ErrorDTO.builder().code(400).message(PERSISTENCE_FAILED).message(message.toString()).build();
+        return ErrorDTO.builder()
+                .code(400)
+                .message(PERSISTENCE_FAILED)
+                .message(message.toString())
+                .action("Please check the(se) field(s)").build();
 
     }
 }

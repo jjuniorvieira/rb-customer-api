@@ -15,11 +15,14 @@ import java.util.Arrays;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    @Autowired
     private CustomerRepository repository;
+    private ModelMapper mapper;
 
     @Autowired
-    private ModelMapper mapper;
+    public CustomerServiceImpl(CustomerRepository repository, ModelMapper mapper){
+        repository = repository;
+        mapper = mapper;
+    }
 
     @Override
     public Iterable<CustomerDTO> findAll() {

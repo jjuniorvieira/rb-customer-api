@@ -16,18 +16,19 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Constraint;
 import javax.validation.ConstraintViolationException;
+import static com.rabobank.dexterslab.customerapi.utils.ResponseUtil.setErrorMessage;
 
 @ControllerAdvice
 public class CustomerExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<>(ExceptionUtils.getRootCauseMessage(ex), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ExceptionUtils.getRootCauseMessage(ex).split("at \\[Source")[0], HttpStatus.BAD_REQUEST);
     }
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return new ResponseEntity<>(ExceptionUtils.getRootCauseMessage(ex), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(setErrorMessage(ex.getBindingResult()), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {ConstraintViolationException.class})

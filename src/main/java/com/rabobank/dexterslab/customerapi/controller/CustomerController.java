@@ -5,14 +5,10 @@ import com.rabobank.dexterslab.customerapi.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URISyntaxException;
-import java.util.List;
-
-import static com.rabobank.dexterslab.customerapi.utils.ResponseUtil.setErrorMessage;
 
 @RestController
 @RequestMapping("customer")
@@ -32,24 +28,18 @@ public class CustomerController {
     }
 
     @PostMapping("create")
-    public ResponseEntity save(@Valid @RequestBody CustomerDTO customerDTO, BindingResult bindingResult) throws URISyntaxException {
-        if (bindingResult.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(setErrorMessage(bindingResult));
-
+    public ResponseEntity save(@Valid @RequestBody CustomerDTO customerDTO) throws URISyntaxException {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(customerDTO));
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity update(@Valid @RequestBody CustomerDTO customerDTO, BindingResult bindingResult , @PathVariable("id") Integer id) {
-        if (bindingResult.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(setErrorMessage(bindingResult));
-
-        return ResponseEntity.status(HttpStatus.OK).body(service.update(customerDTO,id));
+    public ResponseEntity update(@Valid @RequestBody CustomerDTO customerDTO, @PathVariable("id") Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.update(customerDTO, id));
     }
 
-    @PatchMapping("update/{id}")
+    @PatchMapping("update-address/{id}")
     public ResponseEntity partialUpdate(@RequestBody CustomerDTO customerDTO, @PathVariable("id") Integer id) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.update(customerDTO,id));
+        return ResponseEntity.status(HttpStatus.OK).body(service.update(customerDTO, id));
     }
 
     @DeleteMapping("delete/{id}")

@@ -24,7 +24,7 @@ public class Address implements Serializable {
     private String city;
     private String country;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

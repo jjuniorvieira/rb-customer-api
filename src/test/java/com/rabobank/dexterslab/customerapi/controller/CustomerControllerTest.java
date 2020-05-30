@@ -29,9 +29,6 @@ public class CustomerControllerTest {
     @Mock
     private CustomerService service;
 
-    @Mock
-    private BindingResult bindingResult;
-
     @InjectMocks
     private CustomerController controller;
 
@@ -75,7 +72,7 @@ public class CustomerControllerTest {
         CustomerDTO dtoMock = mockFirstCustomerData(0);
         when(service.save(anyObject())).thenReturn(dtoMock);
 
-        ResponseEntity response = controller.save(CustomerDTO.builder().build(), bindingResult);
+        ResponseEntity response = controller.save(CustomerDTO.builder().build());
         CustomerDTO expectedCustomer = (CustomerDTO) response.getBody();
 
         assertEquals(expectedCustomer.getId(), dtoMock.getId());
@@ -92,7 +89,7 @@ public class CustomerControllerTest {
         CustomerDTO dtoMock = mockFirstCustomerData(1);
         when(service.update(anyObject(), anyInt())).thenReturn(dtoMock);
 
-        ResponseEntity response = controller.update(CustomerDTO.builder().build(), bindingResult, 1);
+        ResponseEntity response = controller.update(CustomerDTO.builder().build(), 1);
         CustomerDTO expectedCustomer = (CustomerDTO) response.getBody();
 
         assertEquals(expectedCustomer.getId(), dtoMock.getId());

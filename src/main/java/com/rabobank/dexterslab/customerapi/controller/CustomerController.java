@@ -38,8 +38,8 @@ public class CustomerController {
     }
 
     @PatchMapping("update-address/{id}")
-    public ResponseEntity partialUpdate(@RequestBody CustomerDTO customerDTO, @PathVariable("id") Integer id) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.update(customerDTO, id));
+    public ResponseEntity partialUpdate(@RequestBody String address, @PathVariable("id") Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.update(CustomerDTO.builder().currentAddress(address).build(), id));
     }
 
     @DeleteMapping("delete/{id}")

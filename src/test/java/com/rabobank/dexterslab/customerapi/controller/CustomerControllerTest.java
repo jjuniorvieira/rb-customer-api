@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -107,7 +106,7 @@ public class CustomerControllerTest {
         dtoMock.setFirstName("JJ");
         when(service.update(anyObject(), anyInt())).thenReturn(dtoMock);
 
-        ResponseEntity response = controller.partialUpdate(CustomerDTO.builder().build(), 1);
+        ResponseEntity response = controller.partialUpdate("My new address", 1);
         CustomerDTO expectedCustomer = (CustomerDTO) response.getBody();
 
         assertEquals(expectedCustomer.getId(), dtoMock.getId());

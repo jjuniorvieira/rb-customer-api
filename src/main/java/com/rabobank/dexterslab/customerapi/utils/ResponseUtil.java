@@ -17,9 +17,12 @@ public class ResponseUtil {
         List<FieldError> errors = bindingResult.getFieldErrors();
         List<String> message = new ArrayList<>();
 
-        for (FieldError e : errors) {
-            message.add("@" + e.getField().toUpperCase() + ":" + e.getDefaultMessage());
-        }
+
+        errors.stream().forEach(err -> message.add("@" + err.getField().toUpperCase() + ":" + err.getDefaultMessage()));
+
+//        for (FieldError e : errors) {
+//            message.add("@" + e.getField().toUpperCase() + ":" + e.getDefaultMessage());
+//        }
 
         return ErrorDTO.builder()
                 .code(400)

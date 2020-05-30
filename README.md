@@ -1,6 +1,6 @@
 # REST API to the Customer Application 
 
-This is the Rest API to the Customer Applocation implemented to prove my knowledge in some of the technologies and frameworks back-end
+This is the Rest API to the Customer Application implemented to prove my knowledge in some of the technologies and frameworks back-end
 
 ## Getting Started
 
@@ -67,7 +67,7 @@ For now, only the following endpoints are required:
 - Get Customer
 - Update Customer Address
 
-## Technologies/Frameworks 
+## Technologies/Frameworks used
 - Spring-boot 2.3.0
 - Spring Data
 - H2 Database

@@ -55,25 +55,17 @@ The engineers at customer management want to be able to easily run your service 
 machines (for testing purposes), including database(s).
 Below are the specifications for the Customer model:
 
-• Customer
-
-• First name (unique in combination with last name)
-
-• Last name
-
-• Age
-
-• Date of Birth
-
-• Current address
+- Customer
+- First name (unique in combination with last name)
+- Last name
+- Age
+- Date of Birth
+- Current address
 
 For now, only the following endpoints are required:
-
-• Create Customer
-
-• Get Customer
-
-• Update Customer Address
+- Create Customer
+- Get Customer
+- Update Customer Address
 
 ## Technologies/Frameworks 
 - Spring-boot 2.3.0
